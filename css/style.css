@@ -8,6 +8,7 @@
     --wc: #ffffff;
     --gc50: rgba(0, 0, 0, 0.5);
     --bs: 60rem;
+
 }
 
 /* .bs {
@@ -16,6 +17,14 @@
 
 html {
     font-size: 6.25%;
+}
+
+
+@media (max-width: 540px) {
+    html {
+        font-size: 0.25641025641vw;
+        /* 390 size에 맞춤 (16/390*6.25/100) 디자인 사이즈 */
+    }
 }
 
 /* 100 % 16 = 6.25 
@@ -42,6 +51,12 @@ p {
     padding: 100rem 0;
 }
 
+@media(max-width: 540px) {
+    .section {
+        padding: 50rem 0;
+    }
+}
+
 .section .title {
     max-width: 1200rem;
     margin: 0 auto 30rem auto;
@@ -61,6 +76,10 @@ p {
 
 /* 모바일에선 잘게 써야하는 건 rem 사용하지말고 px 사용해야함*/
 
+#Header h1 {
+    flex: 1 0 170rem;
+}
+
 #Header .inner {
     display: flex;
     justify-content: space-between;
@@ -68,10 +87,67 @@ p {
     height: 100rem;
 }
 
+@media(max-width: 540px) {
+    #Header h1.on {
+        position: fixed;
+        z-index: 1001;
+    }
+}
+
 #gnb>ul {
     display: flex;
     gap: 40px;
 }
+
+@media(max-width: 540px) {
+    #gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 1000;
+        width: 100%;
+        height: 100vh;
+        background: var(--wc);
+    }
+
+    #gnb.on {
+        left: 0;
+    }
+
+    #gnb>ul {
+        padding: 100rem 30rem 0 30rem;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.mobile_btn {
+    display: none;
+}
+
+@media(max-width: 540px) {
+    .search_area {
+        display: none;
+    }
+
+    .mobile_btn {
+        display: block;
+
+        position: fixed;
+        top: 30rem;
+        right: 30rem;
+        z-index: 1000;
+    }
+
+    .mobile_btn i {
+        padding: 10rem;
+        font-size: 20rem;
+        background: var(--line);
+        border-radius: 3px;
+    }
+}
+
+
 
 #mainVisual {
     position: relative;
@@ -90,6 +166,7 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 1200rem;
+    width: 100%;
     padding: 0 15rem;
 }
 
@@ -100,6 +177,12 @@ p {
     text-transform: uppercase;
     text-shadow: 0 0 10rem rgba(0, 0, 0, 0.5);
     margin: 0 0 20rem 0;
+}
+
+@media (max-width: 540px) {
+    #mainVisual .main_slide .slogan h3 {
+        font-size: 40rem;
+    }
 }
 
 #mainVisual .main_slide .slogan p {
@@ -148,6 +231,12 @@ p {
     gap: 30rem;
 }
 
+@media (max-width: 540px) {
+    #MainContent .inner {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 #MainContent figure .img_box {
     margin: 0 0 20rem 0;
 }
@@ -180,4 +269,11 @@ p {
 #Footer .inner {
     display: grid;
     grid-template-columns: 150rem 1fr;
+    gap: 30rem;
+}
+
+@media (max-width: 540px) {
+    #Footer .inner {
+        grid-template-columns: 1fr;
+    }
 }
